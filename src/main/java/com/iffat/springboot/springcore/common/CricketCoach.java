@@ -1,4 +1,4 @@
-package com.iffat.springboot.util;
+package com.iffat.springboot.springcore.common;
 
 import org.springframework.stereotype.Component;
 
