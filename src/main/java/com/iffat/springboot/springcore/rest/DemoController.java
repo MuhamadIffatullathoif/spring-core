@@ -8,15 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DemoController {
-    private Coach myCoach;
-    private Coach anotherCoach;
+    private final Coach myCoach;
 
     @Autowired
-    public DemoController(@Qualifier("baseballCoach") Coach coach,
-                          @Qualifier("baseballCoach") Coach anotherCoach) {
+    public DemoController(@Qualifier("baseballCoach") Coach coach) {
         System.out.println("in constructor " + getClass().getSimpleName());
         this.myCoach = coach;
-        this.anotherCoach = anotherCoach;
     }
 
     @GetMapping("/dailyworkout")
@@ -24,8 +21,4 @@ public class DemoController {
         return myCoach.getDailyWorkout();
     }
 
-    @GetMapping("/check")
-    public String check() {
-        return "Check coach === another coach, " + (myCoach == anotherCoach);
-    }
 }
