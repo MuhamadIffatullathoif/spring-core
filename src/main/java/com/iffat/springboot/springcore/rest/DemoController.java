@@ -8,20 +8,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DemoController {
-
-    public DemoController() {
-        System.out.println("in constructor " + getClass().getSimpleName());
-    }
-
     private Coach myCoach;
+    private Coach anotherCoach;
 
     @Autowired
-    public void setCoach(@Qualifier("baseballCoach") Coach coach) {
+    public DemoController(@Qualifier("baseballCoach") Coach coach,
+                          @Qualifier("baseballCoach") Coach anotherCoach) {
+        System.out.println("in constructor " + getClass().getSimpleName());
         this.myCoach = coach;
+        this.anotherCoach = anotherCoach;
     }
 
     @GetMapping("/dailyworkout")
     public String getDailyWorkout() {
         return myCoach.getDailyWorkout();
+    }
+
+    @GetMapping("/check")
+    public String check() {
+        return "Check coach === another coach, " + (myCoach == anotherCoach);
     }
 }
