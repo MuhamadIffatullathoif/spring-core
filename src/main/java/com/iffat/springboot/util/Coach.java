@@ -1,4 +1,4 @@
-package com.iffat.springboot.springcore.common;
+package com.iffat.springboot.util;
 
 public interface Coach {
     String getDailyWorkout();
