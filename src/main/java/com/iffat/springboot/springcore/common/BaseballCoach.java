@@ -13,16 +13,6 @@ public class BaseballCoach implements Coach {
         System.out.println("in constructor " + getClass().getSimpleName());
     }
 
-    @PostConstruct
-    public void doStart() {
-        System.out.println("doStart in, " + getClass().getSimpleName());
-    }
-
-    @PreDestroy
-    public void doClean() {
-        System.out.println("doClean in, " + getClass().getSimpleName());
-    }
-
     @Override
     public String getDailyWorkout() {
         return "Baseball coach implement Coach service in dailyworkout";
